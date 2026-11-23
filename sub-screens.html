@@ -1,0 +1,177 @@
+<!-- SUB-SCREENS -->
+
+<!-- Stop Detail -->
+<div id="sub-stop-detail" class="sub-screen hidden">
+    <div class="sub-header">
+        <button class="back-btn btn-close-sub"><i class="fas fa-chevron-left"></i></button>
+        <h3>Bus Stop Detail</h3>
+        <div class="spacer"></div>
+    </div>
+    <div class="sub-body">
+
+        <!-- Stop name & meta info -->
+        <div style="margin-bottom:14px;">
+            <p class="stop-detail-name" id="detail-stop-name">-</p>
+            <div class="stop-detail-meta">
+                <span><i class="fas fa-person-walking"></i><span id="detail-stop-distance">-</span></span>
+                <span><i class="fas fa-location-dot"></i><span id="detail-stop-address">-</span></span>
+            </div>
+        </div>
+
+        <!-- Mini map -->
+        <div class="mini-map-wrap"><div id="detail-mini-map"></div></div>
+
+        <!-- Quick info chips -->
+        <div style="display:flex;gap:8px;margin-bottom:16px;">
+            <div style="flex:1;background:#F0FDF4;border-radius:12px;padding:10px 12px;text-align:center;">
+                <div style="font-size:0.6rem;font-weight:700;color:#16A34A;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:3px;">Status</div>
+                <div style="font-size:0.82rem;font-weight:800;color:#15803D;"><i class="fas fa-circle me-1" style="font-size:0.5rem;"></i>Active</div>
+            </div>
+            <div style="flex:1;background:#EFF6FF;border-radius:12px;padding:10px 12px;text-align:center;">
+                <div style="font-size:0.6rem;font-weight:700;color:#3B82F6;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:3px;">Zone</div>
+                <div style="font-size:0.82rem;font-weight:800;color:#1D4ED8;">KT City</div>
+            </div>
+            <div style="flex:1;background:#FDF4FF;border-radius:12px;padding:10px 12px;text-align:center;">
+                <div style="font-size:0.6rem;font-weight:700;color:#A855F7;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:3px;">Facility</div>
+                <div style="font-size:0.82rem;font-weight:800;color:#7E22CE;"><i class="fas fa-umbrella me-1" style="font-size:0.7rem;"></i>Shelter</div>
+            </div>
+        </div>
+
+        <!-- Upcoming buses section -->
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">
+            <div style="font-size:0.85rem;font-weight:700;color:#111827;"><i class="fas fa-clock me-2" style="color:#F472B6;"></i>Upcoming Buses</div>
+            <div style="font-size:0.65rem;font-weight:600;color:#9CA3AF;">Live data</div>
+        </div>
+        <div id="upcoming-bus-list"></div>
+
+        <button class="btn-pink" id="btn-sub-view-on-map-back">
+            <i class="fas fa-map me-2"></i>View on Map
+        </button>
+    </div>
+</div>
+
+<!-- Route Detail / Stop List -->
+<div id="sub-route-detail" class="sub-screen hidden">
+    <div class="sub-header">
+        <button class="back-btn btn-close-sub"><i class="fas fa-chevron-left"></i></button>
+        <h3>Stop List</h3>
+        <button id="route-detail-fav-btn" class="fav-toggle-btn" style="background:rgba(255,255,255,0.6);" title="Add to favourites">
+            <i class="fas fa-heart"></i>
+        </button>
+    </div>
+    <div class="sub-body">
+        <div class="route-detail-card">
+            <div class="route-detail-header">
+                <span id="detail-route-badge" class="bus-badge-pill bg-blue" style="font-size:1rem;padding:8px 12px;">T45</span>
+                <div>
+                    <div style="font-size:0.7rem;color:#9CA3AF;font-weight:600;" id="detail-route-start">-</div>
+                    <div style="font-size:0.9rem;font-weight:800;color:#111827;" id="detail-route-end">-</div>
+                </div>
+            </div>
+            <div style="display:flex;justify-content:space-around;text-align:center;">
+                <div class="route-stat">
+                    <div class="stat-label"><i class="fas fa-road me-1"></i>Distance</div>
+                    <div class="stat-val" id="detail-route-distance">-</div>
+                </div>
+                <div class="route-stat-divider"></div>
+                <div class="route-stat">
+                    <div class="stat-label"><i class="fas fa-hourglass-half me-1"></i>Est. Time</div>
+                    <div class="stat-val" id="detail-route-eta">-</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="timeline" id="route-timeline-stops"></div>
+
+        <button class="btn-pink" id="btn-route-view-on-map">
+            <i class="fas fa-map me-2"></i>View on Map
+        </button>
+    </div>
+</div>
+
+<!-- Live Tracking -->
+<div id="sub-live-tracking" class="sub-screen hidden" style="display:none;flex-direction:column;">
+    <div class="sub-header">
+        <button class="back-btn btn-close-tracking"><i class="fas fa-chevron-left"></i></button>
+        <h3 id="tracking-header-title">Tracking</h3>
+        <div class="spacer"></div>
+    </div>
+
+    <div class="tracking-info-bar">
+        <span id="track-badge" class="tracking-route-badge bg-blue">T45</span>
+        <span id="track-route-name-text" class="tracking-route-name">-</span>
+        <span class="on-time-badge"><i class="fas fa-check-circle me-1"></i>On Time</span>
+    </div>
+
+    <div id="live-tracking-map" style="flex:1;min-height:0;"></div>
+
+    <div class="tracking-stats">
+        <div class="track-stat">
+            <div class="ts-label"><i class="fas fa-sign-in-alt me-1"></i>Next Stop</div>
+            <div class="ts-val" id="track-next-stop">-</div>
+        </div>
+        <div class="track-stat-divider"></div>
+        <div class="track-stat">
+            <div class="ts-label"><i class="fas fa-clock me-1"></i>ETA</div>
+            <div class="ts-val" id="track-eta">-</div>
+        </div>
+        <div class="track-stat-divider"></div>
+        <div class="track-stat">
+            <div class="ts-label"><i class="fas fa-tachometer-alt me-1"></i>Speed</div>
+            <div class="ts-val">32 km/h</div>
+        </div>
+    </div>
+
+    <div style="padding:0 16px 16px;">
+        <button class="btn-pink btn-close-tracking" style="margin-top:0;">
+            <i class="fas fa-list me-2"></i>View Stop List
+        </button>
+    </div>
+</div>
+
+<!-- Notifications -->
+<div id="sub-notification" class="sub-screen hidden">
+    <div class="sub-header">
+        <button class="back-btn btn-close-notif"><i class="fas fa-chevron-left"></i></button>
+        <h3><i class="fas fa-bell me-2"></i>Notifications</h3>
+        <div class="spacer"></div>
+    </div>
+    <div class="sub-body">
+        <div class="notif-card">
+            <div class="notif-icon-wrap danger"><i class="fas fa-exclamation-triangle"></i></div>
+            <div class="flex-grow-1">
+                <div class="d-flex justify-content-between align-items-start">
+                    <div class="notif-title" style="color:#EF4444;">Delay Alert</div>
+                    <div class="notif-time">9:30 AM</div>
+                </div>
+                <div class="notif-body">T45 (UniSZA → Kuala Terengganu) is delayed by 10 minutes due to heavy traffic.</div>
+            </div>
+        </div>
+
+        <div class="notif-card">
+            <div class="notif-icon-wrap warning"><i class="fas fa-bell"></i></div>
+            <div class="flex-grow-1">
+                <div class="d-flex justify-content-between align-items-start">
+                    <div class="notif-title" style="color:#CA8A04;">Arrival Reminder</div>
+                    <div class="notif-time">9:15 AM</div>
+                </div>
+                <div class="notif-body">U52 will arrive at UMT in 5 minutes.</div>
+            </div>
+        </div>
+
+        <div class="notif-card">
+            <div class="notif-icon-wrap info"><i class="fas fa-info-circle"></i></div>
+            <div class="flex-grow-1">
+                <div class="d-flex justify-content-between align-items-start">
+                    <div class="notif-title" style="color:#3B82F6;">Service Update</div>
+                    <div class="notif-time">9:10 AM</div>
+                </div>
+                <div class="notif-body">Route T54 will have a special diversion on 25 May 2025.</div>
+            </div>
+        </div>
+
+        <div class="text-center py-3" style="font-size:0.75rem;color:#9CA3AF;font-weight:600;">
+            No more notifications
+        </div>
+    </div>
+</div>

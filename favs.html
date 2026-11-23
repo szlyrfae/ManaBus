@@ -1,0 +1,30 @@
+<!-- FAVOURITES PAGE -->
+<div class="page-header">
+    <h2><i class="fas fa-heart me-2"></i>Favourites</h2>
+    <div class="search-wrap mt-3">
+        <i class="fas fa-search search-icon"></i>
+        <input type="text" class="search-input" id="fav-search-input" placeholder="Search favourite routes...">
+    </div>
+</div>
+
+<div class="fav-tab-bar" style="position:sticky;top:0;z-index:99;background:white;">
+    <button class="fav-tab active" id="tab-routes" onclick="switchFavTab('routes')">
+        <i class="fas fa-bus me-2"></i>Routes
+    </button>
+    <button class="fav-tab" id="tab-stops" onclick="switchFavTab('stops')">
+        <i class="fas fa-map-marker-alt me-2"></i>Bus Stops
+    </button>
+</div>
+
+<div class="fav-list" id="fav-routes-panel">
+    <div id="fav-routes-list-target"></div>
+</div>
+
+<div class="fav-list" id="fav-stops-panel" style="display:none;">
+    <div id="fav-stops-list-target">
+        <div class="text-center py-5" style="color:#9CA3AF;font-size:0.82rem;">
+            <i class="fas fa-map-marker-alt mb-2" style="font-size:1.5rem;display:block;color:#F9A8D4;"></i>
+            Favourite stops coming soon!
+        </div>
+    </div>
+</div>

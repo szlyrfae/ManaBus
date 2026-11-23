@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MANABUS - Live Tracker</title>
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#F9A8D4">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app-container">
+
+    <!-- Splash Screen -->
+    <div id="splash-screen" class="position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-between align-items-center">
+        <div class="splash-overlay"></div>
+        <div class="splash-logo text-center" style="position:relative;z-index:2;">
+            <span class="logo-mana">MANA</span><span class="logo-bus">BUS</span>
+        </div>
+        <div class="d-flex justify-content-center align-items-center flex-grow-1" style="position:relative;z-index:2;">
+            <i class="fas fa-bus splash-bus-icon"></i>
+        </div>
+        <div class="splash-loading d-flex flex-column align-items-center gap-2 mb-4" style="position:relative;z-index:2;">
+            <div class="spinner-border text-white" role="status" style="width:1.4rem;height:1.4rem;border-width:2px;"></div>
+            <span style="font-size:0.82rem;font-weight:600;">Loading ManaBus...</span>
+        </div>
+    </div>
+
+    <!-- Main View -->
+    <main id="app-view-port"></main>
+
+    <!-- Sub-screens container (outside viewport so they don't scroll) -->
+    <div id="sub-screen-container"></div>
+
+    <!-- Bottom Navigation -->
+    <nav class="bottom-nav">
+        <button class="nav-item active" data-page="home">
+            <span class="nav-icon"><i class="fas fa-home"></i></span>
+            <span class="nav-text">Home</span>
+        </button>
+        <button class="nav-item" data-page="map">
+            <span class="nav-icon"><i class="fas fa-map-marked-alt"></i></span>
+            <span class="nav-text">Map</span>
+        </button>
+        <button class="nav-item" data-page="routes">
+            <span class="nav-icon"><i class="fas fa-bus"></i></span>
+            <span class="nav-text">Routes</span>
+        </button>
+        <button class="nav-item" data-page="favs">
+            <span class="nav-icon"><i class="fas fa-heart"></i></span>
+            <span class="nav-text">Favorites</span>
+        </button>
+        <button class="nav-item" data-page="about">
+            <span class="nav-icon"><i class="fas fa-info-circle"></i></span>
+            <span class="nav-text">About</span>
+        </button>
+    </nav>
+
+</div>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="app.js"></script>
+<script>
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('/serviceWorker.js')
+                .then(reg => console.log('SW registered:', reg.scope))
+                .catch(err => console.log('SW error:', err));
+        });
+    }
+</script>
+</body>
+</html>

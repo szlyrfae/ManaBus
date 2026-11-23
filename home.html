@@ -1,0 +1,57 @@
+<!-- HOME PAGE -->
+<div class="page-header">
+    <div class="d-flex justify-content-between align-items-center">
+        <h2>Bus Tracker</h2>
+        <button id="btn-home-notification" style="background:rgba(255,255,255,0.6);border:none;width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1rem;color:#374151;cursor:pointer;">
+            <i class="fa-regular fa-bell"></i>
+        </button>
+    </div>
+</div>
+
+<!-- Weather Card -->
+<div class="section-title"></div>
+<div class="weather-card">
+    <div>
+        <p class="weather-city">Kuala Terengganu</p>
+        <p class="weather-desc" id="weather-desc">Partly Cloudy</p>
+        <p class="weather-temp" id="weather-temp">29 °C</p>
+    </div>
+    <div class="weather-icon" id="weather-icon-el"><i class="fas fa-cloud-sun"></i></div>
+</div>
+
+<!-- Nearest Bus Stop -->
+<div class="nearest-stop-card" id="nearest-stop-card" onclick="navigateToPage('map')" style="cursor:pointer;">
+    <div>
+        <div class="nearest-stop-label"><i class="fas fa-location-dot me-1"></i>Nearest Bus Stop</div>
+        <p class="nearest-stop-name" id="near-stop-name">Detecting...</p>
+        <p class="nearest-stop-dist" id="near-stop-distance">Calculating distance...</p>
+    </div>
+    <div class="nearest-stop-icon">
+        <i class="fas fa-bus" style="font-size:0.9rem;"></i>
+    </div>
+</div>
+
+<!-- Live Bus Status -->
+<div class="section-title">Live Bus Status</div>
+<div id="live-bus-list">
+    <div class="bus-card">
+        <div class="skeleton" style="width:48px;height:32px;border-radius:8px;"></div>
+        <div class="flex-grow-1">
+            <div class="skeleton mb-1" style="width:60%;height:12px;"></div>
+            <div class="skeleton" style="width:40%;height:10px;"></div>
+        </div>
+        <div class="skeleton" style="width:40px;height:28px;border-radius:6px;"></div>
+    </div>
+    <div class="bus-card">
+        <div class="skeleton" style="width:48px;height:32px;border-radius:8px;"></div>
+        <div class="flex-grow-1">
+            <div class="skeleton mb-1" style="width:55%;height:12px;"></div>
+            <div class="skeleton" style="width:35%;height:10px;"></div>
+        </div>
+        <div class="skeleton" style="width:40px;height:28px;border-radius:6px;"></div>
+    </div>
+</div>
+
+<!-- Favourite Routes -->
+<div class="section-title">Favourite Routes</div>
+<div id="home-fav-routes-list" style="display:flex;gap:10px;overflow-x:auto;padding:0 16px 4px;scrollbar-width:none;"></div>

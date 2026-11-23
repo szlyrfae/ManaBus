@@ -1,0 +1,16 @@
+{
+  "name": "manabus",
+  "version": "1.0.0",
+  "description": "ManaBus Live Bus Tracking Application",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "adm-zip": "^0.5.17",
+    "axios": "^1.17.0",
+    "express": "^5.2.1",
+    "gtfs-realtime-bindings": "^2.0.0"
+  }
+}
